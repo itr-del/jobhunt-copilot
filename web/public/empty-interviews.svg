@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" width="240" height="160" fill="none">
+  <!-- 空状态插画：日历轮廓，页面上有一个对勾与一条横线，右上角一枚青色小旗 -->
+  <g stroke="#8B8B81" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 日历 -->
+    <rect x="70" y="46" width="100" height="88" rx="6" fill="#FFFFFF"/>
+    <line x1="70" y1="64" x2="170" y2="64"/>
+    <!-- 装订环 -->
+    <line x1="96" y1="38" x2="96" y2="52"/>
+    <line x1="144" y1="38" x2="144" y2="52"/>
+    <!-- 对勾 -->
+    <path d="M92 98 L103 109 L126 86"/>
+    <!-- 横线 -->
+    <line x1="92" y1="122" x2="148" y2="122"/>
+  </g>
+  <!-- 右上角青色小旗 -->
+  <line x1="152" y1="26" x2="152" y2="46" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M152 26 h20 l-5.5 6 5.5 6 h-20 Z" fill="#0D7377"/>
+  <!-- 底部短基线 -->
+  <line x1="92" y1="148" x2="148" y2="148" stroke="#8B8B81" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- favicon：logo 图形 2/3 缩放版，16/32px 下保持清晰 -->
+  <rect width="32" height="32" rx="4" fill="#0D7377"/>
+  <path d="M16.7 25.5 A8 8 0 1 1 21.5 20.7" fill="none" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M25 7 L12 16.3 L17.3 17 Z" fill="#FFFFFF"/>
+  <path d="M25 7 L17.3 17 L16.3 22.3 Z" fill="#FFFFFF" opacity="0.82"/>
+</svg>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" width="240" height="160" fill="none">
+  <!-- 空状态插画：一叠文档，最上一张有三行横线标题（首行青色），侧面一支铅笔 -->
+  <g stroke="#8B8B81" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 底层文档 -->
+    <rect x="62" y="72" width="88" height="62" rx="4" fill="#FFFFFF" transform="rotate(-4 106 103)"/>
+    <!-- 中层文档 -->
+    <rect x="70" y="62" width="88" height="62" rx="4" fill="#FFFFFF" transform="rotate(2 114 93)"/>
+    <!-- 顶层文档 -->
+    <rect x="78" y="52" width="88" height="62" rx="4" fill="#FFFFFF"/>
+    <!-- 内容横线（灰色两行） -->
+    <line x1="90" y1="82" x2="152" y2="82"/>
+    <line x1="90" y1="94" x2="136" y2="94"/>
+    <!-- 侧面铅笔 -->
+    <path d="M182 96 L208 122 l-8 8 l-26 -26 Z" fill="#FFFFFF"/>
+    <path d="M182 96 l-4 -2 l2 4 Z" fill="#FFFFFF"/>
+    <line x1="202" y1="116" x2="208" y2="122"/>
+  </g>
+  <!-- 标题线（青色） -->
+  <line x1="90" y1="70" x2="144" y2="70" stroke="#0D7377" stroke-width="2" stroke-linecap="round"/>
+  <!-- 底部短基线 -->
+  <line x1="88" y1="148" x2="152" y2="148" stroke="#8B8B81" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

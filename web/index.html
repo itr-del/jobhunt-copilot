@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>求职副驾 · Jobhunt Copilot</title>
+    <!-- 外观偏好无闪烁启动（设置页 S3，key 与 src/pages/settings/appearance.ts 一致）：
+         首帧前读出 localStorage 的 jh-theme / jh-density，加 .dark class 与 data-density 属性 -->
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem('jh-theme') || 'light'
+          var dark =
+            theme === 'dark' ||
+            (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+          if (dark) document.documentElement.classList.add('dark')
+          document.documentElement.setAttribute(
+            'data-density',
+            localStorage.getItem('jh-density') === 'compact' ? 'compact' : 'comfortable',
+          )
+        } catch (e) {}
+      })()
+    </script>
+    <style>
+      /* 主题切换 200ms 颜色过渡（settings S3：禁用位移动画） */
+      html.theme-anim,
+      html.theme-anim * {
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease,
+          border-color 0.2s ease !important;
+      }
+      /* 紧凑密度：表格行高收敛（只改间距不改字号） */
+      [data-density='compact'] td,
+      [data-density='compact'] th {
+        padding-top: 6px !important;
+        padding-bottom: 6px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 160" width="240" height="160" fill="none">
+  <!-- 空状态插画：打开的文件夹 + 纸张轮廓 + 虚线圆圈放大镜（1.5px 暖灰，青色点缀） -->
+  <g stroke="#8B8B81" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 后方纸张 -->
+    <rect x="88" y="52" width="26" height="32" rx="2" fill="#FFFFFF" transform="rotate(-6 101 68)"/>
+    <rect x="122" y="48" width="26" height="34" rx="2" fill="#FFFFFF" transform="rotate(5 135 65)"/>
+    <line x1="96" y1="62" x2="108" y2="61" transform="rotate(-6 101 68)"/>
+    <line x1="128" y1="58" x2="142" y2="59" transform="rotate(5 135 65)"/>
+    <line x1="128" y1="64" x2="140" y2="65" transform="rotate(5 135 65)"/>
+    <!-- 文件夹后板 -->
+    <path d="M60 80 a4 4 0 0 1 4-4 h28 l8 8 h76 a4 4 0 0 1 4 4 v42 a4 4 0 0 1-4 4 H64 a4 4 0 0 1-4-4 Z" fill="#FFFFFF"/>
+    <!-- 文件夹前板（打开） -->
+    <path d="M56 96 h128 l-9 36 a4 4 0 0 1-4 3 H69 a4 4 0 0 1-4-3 Z" fill="#FFFFFF"/>
+  </g>
+  <!-- 虚线圆圈放大镜 -->
+  <circle cx="152" cy="34" r="13" stroke="#8B8B81" stroke-width="1.5" stroke-dasharray="4 4" stroke-linecap="round"/>
+  <line x1="162" y1="44" x2="171" y2="53" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M147 32 a6 6 0 0 1 4-4" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- 底部短基线 -->
+  <line x1="92" y1="150" x2="148" y2="150" stroke="#8B8B81" stroke-width="1.5" stroke-linecap="round"/>
+</svg>

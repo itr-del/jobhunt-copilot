@@ -87,6 +87,18 @@ AI 会走 `skills/jobhunt-init/SKILL.md`：检查前置依赖 → 在你指定�
     └── resumes/                  ← 按 JD 定制的简历版本，外发前必经你确认
 ```
 
+## 网页工作台（`web/` 目录，本分支新增）
+
+不想开命令行？`web/` 是一个本地网页工作台：在浏览器里看仪表盘与求职漏斗、管理岗位台账、
+读日报、翻面试档案、调整求职标准。它读写的就是你的工作区文件（唯一事实源），无数据库。
+
+```bash
+cd web && npm install && npm run build
+WORKSPACE_DIR=/path/to/你的求职工作区 npm start   # 打开 http://localhost:8787
+```
+
+不设 `WORKSPACE_DIR` 则进入演示模式（内置示例数据）。详见 `web/README.md`。
+
 ## 设计原则
 
 - **本地文件是唯一事实源**：台账、面试档案、策略笔记都是本地纯文本；飞书文档/HTML 只是可重建的展示层，换工具不归零。

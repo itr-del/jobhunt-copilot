@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 110" width="160" height="110" fill="none">
+  <!-- 空状态插画：放大镜居中，镜片内一条短横线，周围三点虚线星芒 -->
+  <g stroke="#8B8B81" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 放大镜 -->
+    <circle cx="72" cy="48" r="20"/>
+    <line x1="87" y1="63" x2="101" y2="77"/>
+    <!-- 三点虚线星芒 -->
+    <g stroke-dasharray="2.5 2.5">
+      <line x1="38" y1="16" x2="38" y2="28"/>
+      <line x1="32" y1="22" x2="44" y2="22"/>
+      <line x1="112" y1="16" x2="112" y2="28"/>
+      <line x1="106" y1="22" x2="118" y2="22"/>
+      <line x1="122" y1="64" x2="122" y2="76"/>
+      <line x1="116" y1="70" x2="128" y2="70"/>
+    </g>
+  </g>
+  <!-- 镜片内短横线（青色点缀） -->
+  <line x1="63" y1="48" x2="81" y2="48" stroke="#0D7377" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="112" cy="22" r="1.6" fill="#0D7377"/>
+</svg>

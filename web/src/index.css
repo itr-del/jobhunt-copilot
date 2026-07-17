@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* design.md §3.1 中性色（暖调纸面，Light 默认） */
+    --bg-app: #F6F6F3;
+    --bg-surface: #FFFFFF;
+    --bg-subtle: #F0F0EB;
+    --bg-muted: #E7E7E1;
+    --border: #E5E5DF;
+    --border-strong: #D4D4CC;
+    --ink-1: #1B1B18;
+    --ink-2: #55554E;
+    --ink-3: #8B8B81;
+    --ink-4: #B8B8AE;
+    --ink-inverse: #FAFAF7;
+    /* §3.2 品牌主色 — 信号塔青 */
+    --accent-600: #0A5F5C;
+    --accent-500: #0D7377;
+    --accent-100: #DCECEA;
+    --accent-50: #F0F7F6;
+    --accent-ink: #0A4A47;
+    /* §3.3 判断色 — 琥珀 */
+    --amber-600: #B45309;
+    --amber-500: #D97706;
+    --amber-100: #FBEED3;
+    --amber-50: #FDF7EA;
+    --amber-border: #EFD9A7;
+    /* shadcn 兼容变量 */
+    --radius: 10px;
+    /* §6.1 动效 token */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    /* §3.7 深色主题 */
+    --bg-app: #141412;
+    --bg-surface: #1C1C19;
+    --bg-subtle: #26261F;
+    --bg-muted: #2E2E27;
+    --border: #30302A;
+    --border-strong: #42423A;
+    --ink-1: #ECECE5;
+    --ink-2: #A9A99E;
+    --ink-3: #6F6F64;
+    --ink-4: #4C4C45;
+    --ink-inverse: #FAFAF7;
+    --accent-500: #2AA79B;
+    --accent-600: #3BC0B3;
+    --accent-100: #17332F;
+    --accent-50: #12221F;
+    --accent-ink: #8ADCD2;
+    --amber-600: #E8A13A;
+    --amber-500: #D97706;
+    --amber-100: #332816;
+    --amber-50: #241C11;
+    --amber-border: #4D3B1F;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply bg-app text-ink-1 font-sans;
+    text-rendering: optimizeLegibility;
+  }
+  /* 数字统一开 tnum（§4.3） */
+  .tnum,
+  [data-tnum] {
+    font-feature-settings: 'tnum';
+  }
+  /* 焦点环（§12 无障碍） */
+  :focus-visible {
+    outline: 2px solid var(--accent-500);
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: var(--accent-100);
+    color: var(--accent-ink);
+  }
+}
+
+@layer components {
+  /* kbd 样式（§7.14）：mono 11px，subtle 底，1px 边框，下方 1px 投影 */
+  .kbd {
+    @apply inline-flex items-center rounded-sm border border-border bg-subtle px-[5px] py-px font-mono text-[11px] leading-[1.5] text-ink-2;
+    box-shadow: 0 1px 0 var(--border);
+  }
+  /* 白卡基座（§5.2 e0：1px 边框 + 微阴影） */
+  .card-base {
+    @apply rounded-xl border border-border bg-surface shadow-e0;
+  }
+  /* 卡片悬停提升（§6.2-5：e0→e1 + 边框加深 + translateY -1px） */
+  .card-hover {
+    @apply transition-[box-shadow,border-color,transform] duration-instant ease-standard hover:-translate-y-px hover:border-strong hover:shadow-e1;
+  }
+
+  /* 按钮体系（§7.6）：高 32px，圆角 6px，13px/500，按压 scale 0.98 */
+  .btn {
+    @apply inline-flex h-8 select-none items-center justify-center gap-1.5 whitespace-nowrap rounded-md px-3 text-[13px] font-medium transition-colors duration-instant ease-standard active:scale-[0.98] disabled:pointer-events-none disabled:opacity-45;
+  }
+  .btn-primary {
+    @apply btn bg-accent-500 text-white hover:bg-accent-600;
+  }
+  /* Amber 按钮仅用于「确认投递 / 答复决策」等待你拍板动作 */
+  .btn-amber {
+    @apply btn bg-amber-500 text-white hover:bg-amber-600;
+  }
+  .btn-secondary {
+    @apply btn border border-strong bg-surface text-ink-1 hover:bg-subtle;
+  }
+  .btn-ghost {
+    @apply btn text-ink-2 hover:bg-subtle hover:text-ink-1;
+  }
+  .btn-danger {
+    @apply btn border border-[#DC262655] bg-surface text-[#DC2626] hover:bg-[#DC262614];
+  }
+  .btn-icon {
+    @apply inline-flex h-7 w-7 items-center justify-center rounded-md text-ink-3 transition-colors duration-instant hover:bg-subtle hover:text-ink-1 disabled:pointer-events-none disabled:opacity-45;
+  }
+}
