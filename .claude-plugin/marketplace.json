@@ -1,0 +1,32 @@
+{
+  "name": "jobhunt-copilot-marketplace",
+  "owner": {
+    "name": "jobhunt-copilot contributors"
+  },
+  "plugins": [
+    {
+      "name": "jobhunt-copilot",
+      "source": "./",
+      "description": "AI 求职副驾：求职目标梳理、每日岗位筛选、简历定制、市场调研、面试准备、台账日报。本地文件是唯一事实源，绝不自动投递，绝不编造简历。",
+      "version": "1.0.0",
+      "skills": [
+        "./skills/jobhunt-init",
+        "./skills/career-grill",
+        "./skills/jobhunt-daily",
+        "./skills/market-mapping",
+        "./skills/resume-tailor",
+        "./skills/interview-prep",
+        "./skills/jobhunt-ask"
+      ],
+      "commands": [
+        "./commands/jobhunt-init.md",
+        "./commands/career-grill.md",
+        "./commands/jobhunt-daily.md",
+        "./commands/market-mapping.md",
+        "./commands/resume-tailor.md",
+        "./commands/interview-prep.md",
+        "./commands/jobhunt-ask.md"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "jobhunt-copilot",
+  "version": "1.0.0",
+  "description": "AI 求职副驾：逼问式梳理求职目标 → 每日岗位筛选 → 简历定制 → 面试准备复盘 → 投递台账 → 日报。把机械操作交给 Agent，把求职判断留给人。",
+  "author": {
+    "name": "jobhunt-copilot contributors"
+  },
+  "keywords": [
+    "jobhunt",
+    "求职",
+    "简历",
+    "面试",
+    "workflow"
+  ],
+  "skills": "./skills",
+  "commands": "./commands"
+}
