@@ -40,7 +40,7 @@ function SectionShell({
       animate={reduced ? { opacity: 1 } : { opacity: 1, y: 0 }}
       transition={{ duration: 0.24, ease: EASE_OUT, delay: Math.min(order, 4) * 0.06 }}
       className={cn(
-        'relative rounded-xl border border-border shadow-e0',
+        'relative min-w-0 overflow-hidden rounded-xl border border-border shadow-e0',
         sensitive ? 'bg-subtle' : 'bg-surface',
       )}
     >
@@ -231,7 +231,7 @@ export default function InternalTab({
           <EmptyHint />
         ) : (
           <>
-            <div className="overflow-x-auto">
+            <div className="max-w-full overflow-x-auto">
               <table className="w-full border-collapse text-[12.5px]">
                 <thead>
                   <tr>
@@ -301,7 +301,7 @@ function EmptyHint() {
 function DataTable({ header, rows }: { header: string[]; rows: string[][] }) {
   const reduced = useReducedMotion()
   return (
-    <div className="overflow-x-auto">
+    <div className="max-w-full overflow-x-auto">
       <table className="w-full border-collapse text-[13px]">
         <thead>
           <tr>

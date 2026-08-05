@@ -26,8 +26,8 @@ function ReportsSkeleton() {
       <div className="mb-4 flex justify-end">
         <div className="animate-breathe h-8 w-32 rounded-md bg-subtle" />
       </div>
-      <div className="card-base flex h-[560px] overflow-hidden">
-        <div className="w-[320px] shrink-0 border-r border-border">
+      <div className="card-base flex h-[560px] flex-col overflow-hidden md:flex-row">
+        <div className="w-full shrink-0 border-b border-border md:w-[320px] md:border-b-0 md:border-r">
           <div className="border-b border-border p-4">
             <div className="animate-breathe h-8 rounded-md bg-subtle" />
           </div>
@@ -38,7 +38,7 @@ function ReportsSkeleton() {
             </div>
           ))}
         </div>
-        <div className="flex-1 px-10 py-8">
+        <div className="flex-1 px-4 py-8 md:px-10">
           <div className="animate-breathe mb-6 h-7 w-64 rounded-md bg-subtle" />
           {[0.95, 1, 0.85, 0.6, 0.92].map((w, i) => (
             <div
@@ -288,9 +288,9 @@ export default function Reports() {
       </div>
 
       {/* 双栏白卡（内部双栏各滚） */}
-      <div className="card-base flex min-h-[420px] overflow-hidden" style={{ height: cardHeight }}>
-        {/* 左栏 320px：搜索 + 列表 */}
-        <div className="w-[320px] shrink-0 border-r border-border">
+      <div className="card-base flex min-h-[420px] overflow-hidden md:flex-row flex-col" style={{ height: cardHeight }}>
+        {/* 左栏 320px：搜索 + 列表（手机端全宽） */}
+        <div className="w-full shrink-0 border-b border-border md:w-[320px] md:border-b-0 md:border-r">
           <ReportList
             sorted={sorted}
             selected={selectedFile}

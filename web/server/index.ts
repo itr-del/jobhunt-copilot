@@ -14,6 +14,7 @@ import { getWorkspace, REPO_ROOT } from './workspace.js';
 
 const API_VERSION = '1.0.0';
 const PORT = Number.parseInt(process.env.PORT ?? '', 10) || 8787;
+const HOST = process.env.HOST ?? '0.0.0.0';
 const DIST_DIR = path.join(REPO_ROOT, 'dist');
 
 const app = new Hono();
@@ -65,7 +66,7 @@ const ws = getWorkspace();
 console.log(`[server] 模式：${ws.mode} ｜ 工作区：${ws.dir}`);
 console.log(`[server] 静态目录：${fs.existsSync(DIST_DIR) ? DIST_DIR : '（dist/ 不存在，仅提供 /api）'}`);
 
-const server = serve({ fetch: app.fetch, port: PORT }, (info) => {
+const server = serve({ fetch: app.fetch, port: PORT, hostname: HOST }, (info) => {
   console.log(`[server] jobhunt-copilot 后端已启动：http://localhost:${info.port}（API: /api/health）`);
 });
 server.on('error', (err) => {

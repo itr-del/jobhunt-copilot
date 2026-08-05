@@ -17,10 +17,12 @@ import { api } from '@/lib/api'
 import type { JobStatus } from '@/lib/api'
 import { useHealth } from '@/hooks/useHealth'
 import { cn } from '@/lib/utils'
+import { useIsMobile } from '@/components/Layout'
 
 /**
  * 侧边栏导航（design.md §7.2）：展开 232px / 折叠 60px（仅图标，悬停出浮层标签）。
  * 底部固定「工作区模式」芯片与折叠按钮。<1024px 自动折叠（§5.3）。
+ * 移动端（<768px）：由 Layout 放入抽屉，固定 280px 宽度，隐藏折叠按钮。
  */
 
 type NavItem = { label: string; path: string; icon: LucideIcon }
@@ -60,18 +62,24 @@ export default function Sidebar() {
   const { pathname } = useLocation()
   const navigate = useNavigate()
   const health = useHealth()
+  const isMobile = useIsMobile()
+  // 移动端抽屉内固定展开（不折叠）；桌面端保持原有自动折叠逻辑
   const [collapsed, setCollapsed] = useState(false)
   const [inProgress, setInProgress] = useState<number | null>(null)
   const [pendingConfirm, setPendingConfirm] = useState(0)
 
-  // <1024px 自动折叠为 60px（§5.3）
+  // <1024px 自动折叠为 60px（§5.3）；移动端抽屉内始终展开
   useEffect(() => {
+    if (isMobile) {
+      setCollapsed(false)
+      return
+    }
     const mq = window.matchMedia('(max-width: 1023px)')
     const apply = () => setCollapsed(mq.matches)
     apply()
     mq.addEventListener('change', apply)
     return () => mq.removeEventListener('change', apply)
-  }, [])
+  }, [isMobile])
 
   // 导航计数徽标（失败时静默隐藏徽标，不影响导航）
   useEffect(() => {
@@ -104,6 +112,7 @@ export default function Sidebar() {
       className={cn(
         'flex h-full shrink-0 flex-col border-r border-border bg-surface transition-[width] duration-200 ease-out',
         collapsed ? 'w-[60px]' : 'w-[232px]',
+        isMobile && 'w-[280px] shadow-e2',
       )}
     >
       {/* 品牌区（§7.1） */}
@@ -225,6 +234,7 @@ export default function Sidebar() {
           className={cn(
             'mt-1 flex h-8 w-full items-center rounded-md text-ink-3 transition-colors duration-instant hover:bg-subtle hover:text-ink-1',
             collapsed ? 'justify-center' : 'gap-2 px-2',
+            isMobile && 'hidden',
           )}
         >
           {collapsed ? (

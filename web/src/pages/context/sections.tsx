@@ -45,8 +45,8 @@ export function BackgroundBody({ body }: { body: string }) {
         const isReason = kv.key.includes('为什么换工作')
         const insensitive = isReason && kv.value.includes('不敏感')
         return (
-          <motion.div key={kv.key} className="flex items-baseline gap-3" {...stagger(i, 0.04)}>
-            <dt className="w-[130px] shrink-0 text-[13.5px] leading-[1.6] text-ink-3">{kv.key}</dt>
+          <motion.div key={kv.key} className="flex flex-col gap-0.5 sm:flex-row sm:items-baseline sm:gap-3" {...stagger(i, 0.04)}>
+            <dt className="w-full shrink-0 text-[13px] leading-[1.6] text-ink-3 sm:w-[130px] sm:text-[13.5px]">{kv.key}</dt>
             <dd className="min-w-0 text-[13.5px] leading-[1.6] text-ink-1">
               {isStatus && (
                 <span className="mr-1.5 inline-block h-2 w-2 rounded-full bg-accent-500 align-middle" />

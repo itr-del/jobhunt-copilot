@@ -137,11 +137,11 @@ export default function FilterBar({
   return (
     <div
       ref={rootRef}
-      className="sticky top-0 z-sticky -mx-8 border-b border-border bg-surface px-8 py-3"
+      className="sticky top-0 z-sticky -mx-4 border-b border-border bg-surface px-4 py-3 md:-mx-8 md:px-8"
     >
       {/* 行 1：搜索 + 排序 + 重置 */}
-      <div className="flex items-center gap-3">
-        <div className="relative w-[280px] shrink-0">
+      <div className="flex items-center gap-2 md:gap-3">
+        <div className="relative min-w-0 flex-1 md:w-[280px] md:shrink-0 md:flex-none">
           <Search
             size={14}
             aria-hidden

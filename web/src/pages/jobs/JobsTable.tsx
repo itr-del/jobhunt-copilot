@@ -368,8 +368,8 @@ export default function JobsTable({
   )
 
   return (
-    <div ref={cardRef} className="card-base">
-      <table className="w-full table-fixed border-collapse">
+    <div ref={cardRef} className="card-base overflow-x-auto">
+      <table className="w-full min-w-[920px] table-fixed border-collapse">
         <colgroup>
           <col style={{ width: 150 }} />
           <col style={{ width: 180 }} />

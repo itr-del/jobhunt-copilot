@@ -46,7 +46,7 @@ export function PathChip({ path }: { path: string }) {
 
 function ReaderSkeleton() {
   return (
-    <div className="px-10 pb-16 pt-8" aria-label="加载中">
+    <div className="px-4 pb-16 pt-8 md:px-10" aria-label="加载中">
       <div className="mx-auto max-w-reading">
         <div className="animate-breathe mb-6 h-7 w-56 rounded-md bg-subtle" />
         {[0.9, 1, 0.96, 0.6, 1, 0.88, 0.75].map((w, i) => (
@@ -90,7 +90,7 @@ export default function ReportReader({
   return (
     <div className="flex h-full min-h-0 flex-col">
       {/* 文首头（下边框 1px） */}
-      <div className="shrink-0 border-b border-border px-10 pb-4 pt-6">
+      <div className="shrink-0 border-b border-border px-4 pb-4 pt-6 md:px-10">
         <div className="flex items-center gap-2.5">
           <span
             className={cn(
@@ -156,7 +156,7 @@ export default function ReportReader({
       {/* 正文（右栏独立滚动） */}
       <div className="min-h-0 flex-1 overflow-y-auto">
         {error ? (
-          <div className="px-10 py-8">
+          <div className="px-4 py-8 md:px-10">
             <div className="flex items-center gap-3 rounded-lg border border-[#BE123C33] bg-[#FBE9ED] px-4 py-3 dark:bg-[#BE123C14]">
               <p className="text-[13px] text-[#BE123C] dark:text-[#D25976]">加载失败：{error}</p>
               <button
@@ -177,7 +177,7 @@ export default function ReportReader({
             initial={reduced ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.2 }}
-            className="px-10 pb-16 pt-6"
+            className="px-4 pb-16 pt-6 md:px-10"
           >
             <MarkdownView content={raw} fontSize={fontSize} />
           </motion.div>

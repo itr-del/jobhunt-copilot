@@ -152,7 +152,7 @@ export default function FunnelCard({ stats }: { stats: Stats }) {
 
       {/* 图表数据表替代视图（§12 无障碍） */}
       <table className="sr-only">
-        <caption>求职漏斗数据：{MAIN_ORDER.map((s) => `${s} ${countOf(s)}`).join('，')}；终态：offer {countOf('offer')}，{TERMINAL.map((s) => `${s} ${countOf(s)}`).join('，')}</caption>
+        <caption className="sr-only">求职漏斗数据：{MAIN_ORDER.map((s) => `${s} ${countOf(s)}`).join('，')}；终态：offer {countOf('offer')}，{TERMINAL.map((s) => `${s} ${countOf(s)}`).join('，')}</caption>
       </table>
     </section>
   )
