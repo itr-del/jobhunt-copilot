@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 import { motion } from 'framer-motion'
 import {
+  BookOpenCheck,
   Briefcase,
   CalendarCheck,
   ChevronsLeft,
@@ -41,6 +42,7 @@ const NAV_GROUPS: NavGroup[] = [
   {
     name: '知识库',
     items: [
+      { label: '面试问答', path: '/qa', icon: BookOpenCheck },
       { label: '求职标准', path: '/context', icon: Target },
       { label: '策略与简历', path: '/strategy', icon: ScrollText },
     ],

@@ -36,6 +36,22 @@ export type JobStatus =
 /** 匹配评级（空串 = 未评级） */
 export type MatchGrade = '' | '⭐' | '⭐⭐' | '⭐⭐⭐'
 
+/** 面试问答条目（与 server/data/qa.json 字段一一对应） */
+export type QaItem = {
+  /** 序号 */
+  id: number
+  /** 分类（政策章节 / Agent 工程等） */
+  cat: string
+  /** 维度（政策解读 / 公司背景 / 项目经历 / 岗位认知 / 行业趋势） */
+  dim: string
+  /** 问题 */
+  q: string
+  /** 答案 */
+  a: string
+  /** 信源 */
+  src: string
+}
+
 /** 岗位台账行（与 02-jobs/job-ledger.csv 一一对应） */
 export type Job = {
   /** J-YYYYMMDD-NN，如 J-20260717-03 */
@@ -215,6 +231,29 @@ export const api = {
 
   /** GET /api/resumes/:file — 单个定制简历 Markdown 原文 */
   getResume: (file: string) => get<{ raw: string }>(`/api/resumes/${encodeURIComponent(file)}`),
+
+  // ── 面试问答（/api/qa，数据源：server/data/qa.json ← 飞书「面试问答准备」）──
+
+  /** GET /api/qa — 问答列表（可选 cat/dim/q 过滤） */
+  listQa: (params?: { cat?: string; dim?: string; q?: string }) => {
+    const sp = new URLSearchParams()
+    if (params?.cat) sp.set('cat', params.cat)
+    if (params?.dim) sp.set('dim', params.dim)
+    if (params?.q) sp.set('q', params.q)
+    const qs = sp.toString()
+    return get<{ count: number; questions: QaItem[] }>(`/api/qa${qs ? `?${qs}` : ''}`)
+  },
+
+  /** GET /api/qa/meta — 分类/维度选项 + 总数 */
+  qaMeta: () => get<{ count: number; cats: string[]; dims: string[] }>('/api/qa/meta'),
+
+  /** GET /api/qa/random — 随机抽题 */
+  qaRandom: (n = 5, cat?: string, dim?: string) => {
+    const sp = new URLSearchParams({ n: String(n) })
+    if (cat) sp.set('cat', cat)
+    if (dim) sp.set('dim', dim)
+    return get<{ count: number; questions: QaItem[] }>(`/api/qa/random?${sp.toString()}`)
+  },
 }
 
 export default api

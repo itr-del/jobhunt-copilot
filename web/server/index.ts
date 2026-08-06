@@ -7,6 +7,7 @@ import path from 'node:path';
 import { interviewsRoutes } from './routes/interviews.js';
 import { ledgerRoutes } from './routes/ledger.js';
 import { profileRoutes } from './routes/profile.js';
+import { qaRoutes } from './routes/qa.js';
 import { reportsRoutes } from './routes/reports.js';
 import { statsRoutes } from './routes/stats.js';
 import type { Health } from './types.js';
@@ -34,6 +35,7 @@ api.route('/', ledgerRoutes);
 api.route('/', reportsRoutes);
 api.route('/', interviewsRoutes);
 api.route('/', profileRoutes);
+api.route('/', qaRoutes);
 app.route('/api', api);
 
 // /api 内未匹配路径统一 JSON 404

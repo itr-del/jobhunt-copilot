@@ -80,3 +80,25 @@ type ResumeMeta = { file: string, company: string, role: string, updated: string
 1. scaffold 产出 `src/lib/api.ts`：导出上述 `Job/Stats/...` 类型与 `api` 对象（每端点一个方法，fetch 封装，统一错误抛 `Error(中文)`）。
 2. 页面组件一律经 `api` 取数，不硬编码演示数据；加载中骨架屏、失败 Toast。
 3. 写操作成功后刷新本地缓存（页面自管 state 或简单失效重取）。
+
+### 面试问答（v1，2026-08-06 新增）
+
+```ts
+// 问答条目（与 server/data/qa.json 字段一一对应）
+type QaItem = {
+  id: number        // 序号
+  cat: string       // 分类（政策基础 / AI+商品消费 / AI+服务消费 / AI+商业创新 / 推广与环境 / Agent 工程）
+  dim: string       // 维度（政策解读 / 公司背景 / 项目经历 / 岗位认知 / 行业趋势）
+  q: string         // 问题
+  a: string         // 答案
+  src: string       // 信源
+}
+```
+
+| 方法/路径 | 入参 | 返回 | 说明 |
+|---|---|---|---|
+| GET `/api/qa` | `cat?` `dim?` `q?`（关键词，匹配问题+答案） | `{ count, questions: QaItem[] }` | 问答列表，三个过滤均可选 |
+| GET `/api/qa/meta` | — | `{ count, cats: string[], dims: string[] }` | 分类/维度选项（前端 Tab 与筛选用） |
+| GET `/api/qa/random` | `n?`（默认 5，上限 50）`cat?` `dim?` | `{ count, questions: QaItem[] }` | 随机抽题（自测模式） |
+
+> 数据源：`server/data/qa.json`（飞书多维表格「面试问答准备」导出，同步脚本见 `scripts/qa_sync.py`；OpenClaw 侧 feishu_bitable 工具可随时重新导出）。

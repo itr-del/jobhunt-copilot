@@ -8,6 +8,7 @@ import Dashboard from '@/pages/Dashboard'
 const Jobs = lazy(() => import('@/pages/Jobs'))
 const Reports = lazy(() => import('@/pages/Reports'))
 const Interviews = lazy(() => import('@/pages/Interviews'))
+const InterviewQa = lazy(() => import('@/pages/InterviewQa'))
 const Context = lazy(() => import('@/pages/Context'))
 const Strategy = lazy(() => import('@/pages/Strategy'))
 const Settings = lazy(() => import('@/pages/Settings'))
@@ -30,6 +31,7 @@ export default function App() {
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/reports" element={<Reports />} />
             <Route path="/interviews/*" element={<Interviews />} />
+            <Route path="/qa" element={<InterviewQa />} />
             <Route path="/context" element={<Context />} />
             <Route path="/strategy" element={<Strategy />} />
             <Route path="/settings" element={<Settings />} />
